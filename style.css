@@ -1,0 +1,993 @@
+/*!
+Theme Name: Yorkshire Verruca Clinic
+Theme URI: http://yorkshireverrucaclinic.co.uk
+Author: Tiger Stripe Media
+Author URI: http://tigerstripemedia.co.uk/
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: yorkshire-verruca-clinic
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Yorkshire Verruca Clinic is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Navigation
+	1.1 Menus
+2.0 Accessibility
+3.0 Alignments
+4.0 Clearings
+5.0 Widgets
+6.0 Content
+	6.1 Posts and pages
+	6.2 Comments
+7.0 Infinite scroll
+8.0 Media
+	8.1 Captions
+	8.2 Galleries
+
+9.0 Custom Theme Styles
+	9.1 Theme Info
+	9.2	Global
+	9.3	Navbar
+	9.4	Footer
+	9.5 Media Queries
+	9.6	CSS Effects
+	9.7 Home Page
+
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.0 Navigation
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1.1 Menus
+--------------------------------------------------------------*/
+
+/* Small menu. */
+.menu-toggle,
+.main-navigation.toggled ul {
+	display: block;
+}
+
+@media screen and (min-width: 37.5em) {
+	.menu-toggle {
+		display: none;
+	}
+	.main-navigation ul {
+		display: block;
+	}
+}
+
+.site-main .comment-navigation, .site-main
+.posts-navigation, .site-main
+.post-navigation {
+	margin: 0 0 1.5em;
+	overflow: hidden;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	float: left;
+	width: 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	float: right;
+	text-align: right;
+	width: 50%;
+}
+
+/*--------------------------------------------------------------
+2.0 Accessibility
+--------------------------------------------------------------*/
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+	/* Above WP toolbar. */
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/*--------------------------------------------------------------
+3.0 Alignments
+--------------------------------------------------------------*/
+.alignleft {
+	display: inline;
+	float: left;
+	margin-right: 1.5em;
+}
+
+.alignright {
+	display: inline;
+	float: right;
+	margin-left: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*--------------------------------------------------------------
+4.0 Clearings
+--------------------------------------------------------------*/
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}
+
+/*--------------------------------------------------------------
+5.0 Widgets
+--------------------------------------------------------------*/
+.widget {
+	margin: 0 0 1.5em;
+	/* Make sure select elements fit in widgets. */
+}
+
+.widget select {
+	max-width: 100%;
+}
+
+/*--------------------------------------------------------------
+6.0 Content
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+6.1 Posts and pages
+--------------------------------------------------------------*/
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+6.2 Comments
+--------------------------------------------------------------*/
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+7.0 Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
+	/* Theme Footer (when set to scrolling) */
+	display: none;
+}
+
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+8.0 Media
+--------------------------------------------------------------*/
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+	display: inline-block;
+}
+
+/*--------------------------------------------------------------
+8.1 Captions
+--------------------------------------------------------------*/
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/*--------------------------------------------------------------
+8.2 Galleries
+--------------------------------------------------------------*/
+.gallery {
+	margin-bottom: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+
+.gallery-columns-2 .gallery-item {
+	max-width: 50%;
+}
+
+.gallery-columns-3 .gallery-item {
+	max-width: 33.33%;
+}
+
+.gallery-columns-4 .gallery-item {
+	max-width: 25%;
+}
+
+.gallery-columns-5 .gallery-item {
+	max-width: 20%;
+}
+
+.gallery-columns-6 .gallery-item {
+	max-width: 16.66%;
+}
+
+.gallery-columns-7 .gallery-item {
+	max-width: 14.28%;
+}
+
+.gallery-columns-8 .gallery-item {
+	max-width: 12.5%;
+}
+
+.gallery-columns-9 .gallery-item {
+	max-width: 11.11%;
+}
+
+.gallery-caption {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+9.0 Custom Theme Styles
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+9.1 Theme Info
+--------------------------------------------------------------*/
+
+/*
+
+Company Colours
+_______________
+
+Colour 1 (blue): #0079C2
+
+Colour 2 (grey): #6D6E70
+
+*/
+
+/*--------------------------------------------------------------
+9.2 Global
+--------------------------------------------------------------*/
+
+/* --- Fix the top margin when logged in --- */
+.logged-in .fixed-top {
+	top: 32px;
+}
+/* ----------------------------------------- */
+
+body {
+	color: #6D6E70;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	color: #0079C2;
+}
+
+h1 img {
+	height: 55px;
+}
+
+.colour-1 {
+	color: #0079C2;
+}
+
+.colour-2 {
+	color: #6D6E70;
+}
+
+.bg-colour-1 {
+	background-color: #0079C2;
+}
+
+.bg-colour-2 {
+	background-color: #6D6E70;
+}
+
+.btn {
+	border: 2.5px solid transparent;
+}
+
+.btn-primary {
+	border-radius: 0;
+	color: #0079C2!important;
+	background-color: transparent;
+	border-color: #0079C2;
+}
+
+.btn-primary:hover {
+	color: #fff!important;
+	background-color: #0079C2;
+	border-color: #0079C2;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle {
+	color: #fff!important;
+	background-color: #0079C2;
+	border-color: #0079C2;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+	box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus {
+	box-shadow: none;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+    border-radius: 0;
+	color: #0079C2!important;
+	background-color: transparent;
+	border-color: #0079C2!important;
+}
+
+.btn-secondary {
+	border-radius: 0;
+	color: #fff!important;
+	background-color: transparent;
+	border-color: #fff;
+	border:
+}
+
+.btn-secondary:hover {
+	color: #0079C2!important;
+	background-color: #fff;
+	border-color: #fff;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+	color: #0079C2!important;
+	background-color: #fff;
+	border-color: #fff;
+}
+
+.btn-secondary.focus, .btn-secondary:focus {
+	box-shadow: none;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus, .btn-secondary:not(:disabled):not(.disabled):active:focus, .show>.btn-secondary.dropdown-toggle:focus {
+	box-shadow: none;
+}
+
+.form-control.form-control-lg {
+	border-radius: 0;
+	border: 2.5px solid #0079C2;
+	background-color: transparent;
+}
+
+div.wpcf7-response-output {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  position: relative;
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+}
+
+div.wpcf7-mail-sent-ok {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+/* Custom Checkboxes */
+
+/* Customize the label (the container) */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 6px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: transparent;
+	border: solid 2.5px #0079C2;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #e5e5e5;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #0079C2;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* --------------------------------------------------- */
+
+div.wpcf7 .ajax-loader {
+	display: none!important;
+}
+
+.embed-container {
+	position: relative;
+	padding-bottom: 56.25%;
+	height: 0;
+	overflow: hidden;
+	max-width: 100%;
+}
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.contact-separator {
+	border: 1.75px solid #0079C2;
+	margin: 0 8px;
+}
+
+/*--------------------------------------------------------------
+9.3 Navbar
+--------------------------------------------------------------*/
+
+.navbar-light.bg-light {
+	background-color: #fff!important;
+}
+
+.navbar-dark.bg-dark {
+	background-color: #0079C2!important;
+	border-bottom: 1px solid rgba(0,0,0,.2);
+	box-shadow: 10px 0 10px rgba(0, 0, 0, .1);
+}
+
+/* .navbar.navbar-dark {
+	padding: .2rem .5rem!important;
+} */
+
+.navbar-brand img {
+	height: 130px;
+}
+
+.header-contact {
+	text-align: center;
+}
+
+.header-contact a {
+	color: inherit;
+}
+
+.header-contact a:hover {
+	text-decoration: none;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+	color: #fff;
+	border-bottom: 3px solid transparent;
+}
+
+.navbar-dark .navbar-nav .active>.nav-link,
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show>.nav-link {
+	color: #fff;
+	border-bottom: 3px solid #fff;
+}
+
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
+	color: #fff;
+	border-bottom: 3px solid #fff;
+}
+
+.second-nav-wrapper {
+	height: 65px;
+}
+
+nav .navbar-toggler {
+	color: #fff!important;
+	border-color: #fff!important;
+	border: none;
+	background: transparent !important;
+}
+
+nav .navbar-toggler:hover {
+	background: transparent !important;
+}
+
+nav .navbar-toggler:focus {
+	outline: 0;
+}
+
+nav .navbar-toggler .icon-bar {
+  display: block;
+  width: 29px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 1px;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+nav .navbar-toggler .icon-bar+.icon-bar {
+  margin-top: 5px;
+}
+
+/* ANIMATED CUSTOM NAVBAR TOGGLER COLLAPSED */
+
+.navbar-toggler.navbar-custom-toggler.collapsed .icon-bar:nth-of-type(1) {
+	-webkit-transform: rotate(0);
+	-ms-transform: rotate(0);
+	transform: rotate(0);
+}
+
+.navbar-toggler.navbar-custom-toggler.collapsed .icon-bar:nth-of-type(2) {
+	opacity: 1;
+	filter: alpha(opacity=100);
+}
+
+.navbar-toggler.navbar-custom-toggler.collapsed .icon-bar:nth-of-type(3) {
+	-webkit-transform: rotate(0);
+	-ms-transform: rotate(0);
+	transform: rotate(0);
+}
+
+/* ANIMATED CUSTOM NAVBAR TOGGLER */
+.navbar-toggler.navbar-custom-toggler .icon-bar:nth-of-type(1) {
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+	-webkit-transform-origin: 10% 10%;
+	-ms-transform-origin: 10% 10%;
+	transform-origin: 10% 10%;
+}
+
+.navbar-toggler.navbar-custom-toggler .icon-bar:nth-of-type(2) {
+	opacity: 0;
+	filter: alpha(opacity=0);
+}
+
+.navbar-toggler.navbar-custom-toggler:not(.collapsed) .icon-bar:nth-of-type(3) {
+	-webkit-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	-webkit-transform-origin: 10% 90%;
+	-ms-transform-origin: 10% 90%;
+	transform-origin: 10% 90%;
+}
+
+/* END ANIMATED CUSTOM NAVBAR TOGGLER */
+
+/*--------------------------------------------------------------
+9.4 Footer
+--------------------------------------------------------------*/
+
+#footer {
+	background-color: #fff!important;
+	box-shadow: 10px 0 10px rgba(0, 0, 0, .02);
+	padding: 20px 0 10px 0;
+}
+
+.about-section img {
+	border-radius: 1000px;
+	width: 125px!important;
+	display: block;
+	margin: auto;
+}
+
+.our-clinics {
+	text-align: center;
+}
+
+.our-clinics a {
+	color: inherit;
+}
+
+.our-clinics a:hover {
+	color: inherit;
+	text-decoration: none;
+}
+
+.our-clinics span {
+	border: 1.75px solid #0079C2;
+	margin: 0 8px;
+}
+
+.accreditations img {
+	max-width: 150px;
+	display: block;
+	margin: auto;
+}
+
+.social-links {
+	padding-top: 30px;
+	text-align: center;
+}
+
+.social-links a:hover {
+	color: #0079C2;
+}
+
+.policy-links {
+	padding-top: 10px;
+	text-align: center;
+}
+
+.policy-links a:hover {
+	color: #6D6E70;
+}
+
+.copyright {
+	padding: 5px 0;
+	color: rgba(255, 255, 255, 0.9);
+	text-align: center;
+}
+
+.copyright a {
+	color: rgba(255, 255, 255, 0.9);
+}
+
+.copyright a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+9.5 Media Queries
+--------------------------------------------------------------*/
+
+/* --- Fix the top margin when logged in --- */
+@media screen and (max-width: 782px) {
+
+  .logged-in .fixed-top {
+  	top: 46px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .logged-in .fixed-top {
+  	top: 42px;
+  }
+  #wpadminbar {
+  	position: fixed!important;
+  }
+}
+/* ----------------------------------------- */
+
+/* Larger than the mobile nav breakpoint */
+@media only screen and (min-width: 992px) {
+	.book-now-btn {
+		display: block;
+	}
+
+	.mob-book-now-btn {
+		display: none;
+	}
+	
+	.video-page .video-subtitle {
+		display: none;
+	}
+}
+
+/* Smaller than the mobile nav breakpoint */
+@media only screen and (max-width: 991px) {
+	.book-now-btn {
+		display: none;
+	}
+
+  .mob-book-now-btn {
+		display: block;
+	}
+	
+	.navbar-dark .navbar-nav .active>.nav-link,
+	.navbar-dark .navbar-nav .nav-link.active,
+	.navbar-dark .navbar-nav .nav-link.show,
+	.navbar-dark .navbar-nav .show>.nav-link {
+		color: #fff;
+		border-bottom: 3px solid transparent;
+	}
+
+	.navbar-dark .navbar-nav .nav-link:focus,
+	.navbar-dark .navbar-nav .nav-link:hover {
+		color: #fff;
+		border-bottom: 3px solid transparent;
+	}
+	
+	.video-page .video-subtitle {
+		color: rgba(255, 255, 255, 0.5);
+		display: block;
+	}
+}
+
+/*--------------------------------------------------------------
+9.6 CSS Effects
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+9.7 Video Page
+--------------------------------------------------------------*/
+
+#video-page-content {
+	text-align: center;
+	background-image: url('/wp-content/themes/yorkshire-verruca-clinic/assets/img/video-bg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+#video-page-content .bg-overlay {
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 50px 0 25px 0;
+}
+
+#video-page-content .video-tag-line {
+	color: #fff!important;
+	font-size: 1.5rem;
+}
+
+/*--------------------------------------------------------------
+9.7 How it Works Page
+--------------------------------------------------------------*/
+
+.microwave-treatment img {
+	width: 100%;
+	border-radius: 10px;
+}
+
+.case-studies img {
+	width: 100%;
+	border-radius: 10px;
+}
+
+#page-content {
+	background-image: url('/wp-content/themes/yorkshire-verruca-clinic/assets/img/video-bg.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+#page-content .bg-overlay {
+	background-color: rgba(0, 0, 0, 0.6);
+	padding: 50px 0;
+}
+
+#page-content ul {
+	padding-left: 20px!important;
+}
+
+.default-page {
+	background-color: #fff;
+	padding: 30px;
+	box-shadow: 0 0 15px 10px rgba(0, 0, 0, 0.3);
+}
+
+.video-page .video-title {
+	color: #fff;
+}
+
+.video-page .fa-chevron-down {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+#book {
+	padding: 70px 0;
+}
+
+#book a {
+	color: inherit;
+}
+
+.book-now-text a {
+	color: #0079C2!important;
+}
+
+.book-now-text a:hover {
+	text-decoration: underline!important;
+}
+
+#book a:hover {
+	text-decoration: none;
+}
+
+.book-now-icons img {
+	display: block;
+	margin: auto;
+	width: 80px;
+}
+
+.book-now-banner img {
+	width: 100%;
+}
+
+#testimonials {
+	padding: 70px 0;
+	text-align: center;
+}
+
+#testimonials h2,
+#testimonials h5 {
+	color: #fff;
+}
+
+#testimonials .testimonials-subtitle {
+	color: rgba(255, 255, 255, 0.5);
+	padding-bottom: 20px;
+}
+
+#testimonials .testimonial-name {
+	color: rgba(255, 255, 255, 0.5);
+}
